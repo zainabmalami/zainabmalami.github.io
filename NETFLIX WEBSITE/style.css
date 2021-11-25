@@ -1,0 +1,72 @@
+body{
+	background-image: url(nbg.jpeg);
+}
+.container{
+	height: 100vh;
+	background: url(netflixcover.png);
+	width: 100%;
+	text-align: center;
+}
+.#av{
+	height: 5000px;
+	width: 11000px;
+	padding-top: 40px;
+	padding-right: 1100px;
+}
+
+h1{
+	color: white;
+}
+
+.sign-btn:hover{
+	opacity: 1;
+	
+}
+.sub-container{
+	margin-top: 70px;
+}
+.see{
+	font-size: 60px;
+	font-weight: 700;
+	color: #fff;
+	font-family: helvetica;
+}
+.watch{
+	font-size: 35px;
+	font-weight: 300;
+	color: #fff;
+	font-family: helvetica;
+}
+.email{
+	width:100% ;
+	height: 100px;
+	display:inline-block;
+	border:1 solid #ccc ;
+	border-radius:15px ;
+	box-sizing:border-box ;
+	font-size: 100px;
+}
+.join-btn{
+	width:20% ;
+	height: 33px;
+	background: red;
+	font-family: helvetica;
+	border:1 solid #ccc ;
+	border-radius:3px ;
+	opacity: 0.8;
+	font-size: 25px;
+}
+.join-btn:hover{
+	opacity: 1;
+
+}
+
+.remember{
+	color: white;
+}
+.ready{
+	font-size: 20px;
+	font font-weight: 100;
+	color: #fff;
+	font-family: helvetica;
+}
