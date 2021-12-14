@@ -1,4 +1,6 @@
-
+body{
+  background-image: url(bl.jpeg);
+}
 * {
   box-sizing: border-box;
 }

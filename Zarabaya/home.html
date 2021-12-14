@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Cart Page</title>
+	<link rel="stylesheet" type="text/css" href="home.css">
+
+	<style>
+* {
+  box-sizing: border-box;
+}
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+
+input[type=submit] {
+  background-color: #04AA6D;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+.col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+}
+
+.col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .col-25, .col-75, input[type=submit] {
+    width: 100%;
+    margin-top: 0;
+  }
+}
+</style>
+
+
+<style>
+body {
+  font-family: Arial;
+  font-size: 17px;
+  padding: 8px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.row {
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  -ms-flex-wrap: wrap; /* IE10 */
+  flex-wrap: wrap;
+  margin: 0 -16px;
+}
+
+.col-25 {
+  -ms-flex: 25%; /* IE10 */
+  flex: 25%;
+}
+
+.col-50 {
+  -ms-flex: 50%; /* IE10 */
+  flex: 50%;
+}
+
+.col-75 {
+  -ms-flex: 75%; /* IE10 */
+  flex: 75%;
+}
+
+.col-25,
+.col-50,
+.col-75 {
+  padding: 0 16px;
+}
+
+.container {
+  background-color: #f2f2f2;
+  padding: 5px 20px 15px 20px;
+  border: 1px solid lightgrey;
+  border-radius: 3px;
+  width: 800px;
+
+
+}
+
+
+
+.container1 {
+  background-color: #f2f2f2;
+  padding: 5px 20px 15px 20px;
+  border: 1px solid lightgrey;
+  border-radius: 3px;
+  width: 300px;
+
+}
+
+
+input[type=text] {
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+label {
+  margin-bottom: 10px;
+  display: block;
+}
+
+.icon-container {
+  margin-bottom: 20px;
+  padding: 7px 0;
+  font-size: 24px;
+}
+
+.btn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 12px;
+  margin: 10px 0;
+  border: none;
+  width: 100%;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 17px;
+}
+
+.btn:hover {
+  background-color: #45a049;
+}
+
+a {
+  color: #2196F3;
+}
+
+hr {
+  border: 1px solid lightgrey;
+}
+
+span.price {
+  float: right;
+  color: grey;
+}
+
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (also change the direction - make the "cart" column go on top) */
+@media (max-width: 800px) {
+  .row {
+    flex-direction: column-reverse;
+  }
+  .col-25 {
+    margin-bottom: 20px;
+  }
+}
+</style>
+
+
+
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+
+/* Full-width input fields */
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+/* Set a style for all buttons */
+button {
+  background-color: lightblue;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+  width: auto;
+  padding: 10px 18px;
+  background-color: #f44336;
+}
+
+/* Center the image and position the close button */
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+  position: relative;
+}
+
+img.avatar {
+  width: 40%;
+  border-radius: 50%;
+}
+
+.container {
+  padding: 16px;
+}
+
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  padding-top: 60px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button (x) */
+.close {
+  position: absolute;
+  right: 25px;
+  top: 0;
+  color: #000;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: red;
+  cursor: pointer;
+}
+
+/* Add Zoom Animation */
+.animate {
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+  from {-webkit-transform: scale(0)} 
+  to {-webkit-transform: scale(1)}
+}
+  
+@keyframes animatezoom {
+  from {transform: scale(0)} 
+  to {transform: scale(1)}
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+  span.psw {
+     display: block;
+     float: none;
+  }
+  .cancelbtn {
+     width: 100%;
+  }
+}
+</style>
+
+
+</head>
+<body>
+
+<h2><center>Shopping Bag</h2></center>
+<center>
+      <img src="bag.png" width="30px" alt="Avatar" class="Shopping Bag"></center>
+
+
+<div id="id01" class="modal">
+  
+  
+    
+      <center>
+      <img src="bag.png" width="30px" alt="Avatar" class="Shopping Bag"></center>
+    </div>
+    
+
+    <div class="container">
+      
+      
+   
+    
+    <div class="container1">
+      <center>
+      <div class="custom-select" style="width:200px;">
+
+  <select>
+    <option value="0">Select Size:</option>
+    <option value="abuja">50</option>
+        <option value="sokoto">54</option>
+        <option value="lagos">58</option>
+        <option value="kaduna">60</option>
+        <option value="kano">64</option>
+        <option value="Niger">68</option>
+        <option value="delta">70</option>
+    
+  </select>
+</div><br>
+
+        <div class="custom-select" style="width:200px;">
+  <select>
+    <option value="0">Select color:</option>
+    <option value="1">Black</option>
+        <option value="2">Blue</option>
+        <option value="3">Green</option>
+        <option value="4">Pink</option>
+        <option value="5">White</option>
+        <option value="6">Grey</option>
+        <option value="7">light Blue</option>
+    
+  </select>
+</div><br>
+
+
+       <div class="custom-select" style="width:200px;">
+  <select>
+    <option value="0">Quantity:</option>
+    <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+    
+  </select>
+</div>
+</center>
+
+
+
+
+     
+     
+      <button type="submit">CONFIRM ORDER</button>
+      
+    </div>
+
+    
+      
+      <span class="psw"><a href="about.html">About Us?</a></span>
+    </div>
+  
+</div>
+
+
+
+
+
+<h2><center>Payment</h2></center>
+<div class="row">
+  <div class="col-75">
+    <div class="container">
+      <form action="/action_page.php">
+      
+        <div class="row">
+          <div class="col-50">
+            <h3>Delivary Address</h3>
+            <img src="t.png" width="30px">
+            <label for="fname"><i class="fa fa-user"></i> Full Name</label>
+            <input type="text" id="fname" name="firstname" placeholder="Zainab Malami Ahmad">
+            <label for="email"><i class="fa fa-envelope"></i> Email</label>
+            <input type="text" id="email" name="email" placeholder="example@email.com">
+            <label for="adr"><i class="fa fa-address-card-o"></i> Address</label>
+            <input type="text" id="adr" name="address" placeholder="Delivary Address">
+            <label for="city"><i class="fa fa-institution"></i> Country
+            <select>
+    <option value="0">Nigeria</option>
+    <option value="1">Ghana</option>
+        <option value="2">Egypt</option>
+        <option value="3">South Africa</option>
+        <option value="4">Morocco</option>
+        <option value="5">Madagaska</option>
+        <option value="6">United Kingdom</option>
+        <option value="7">Canada</option>
+    
+  </select>
+</label>
+            
+
+            <div class="row">
+              <div class="col-50">
+                <label for="state">State</label>
+                <input type="text" id="state" name="state" placeholder="">
+              </div>
+              <div class="col-50">
+                <label for="zip">Zip Code</label>
+                <input type="text" id="zip" name="zip" placeholder="00176-0000">
+              </div>
+            </div>
+          </div>
+
+          <div class="col-50">
+            <h3>Payment </h3>
+            <img src="mp.png" width="30px">
+            <label for="fname">Accepted Cards</label>
+            <div class="icon-container">
+              <img src="vc.jpeg" width="50px">
+              <i class="fa fa-cc-visa" style="color:navy;"></i>
+              <img src="mcr.png" width="50px">
+              <i class="fa fa-cc-amex" style="color:blue;"></i>
+              <i class="fa fa-cc-mastercard" style="color:red;"></i>
+              <i class="fa fa-cc-discover" style="color:orange;"></i>
+            </div>
+            <label for="cname">Name on Card</label>
+            <input type="text" id="cname" name="cardname" placeholder="ZAINAB MALAMI AHMAD">
+            <label for="ccnum">Credit card number</label>
+            <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444">
+            <label for="expmonth"></label>
+            
+            <div class="row">
+              <div class="col-50">
+                
+              </div>
+              <div class="col-50">
+                
+              </div>
+            </div>
+          </div>
+          
+        </div>
+        <label>
+          Delivery is Expected one week after order
+        </label>
+        <input type="submit" value="Continue to checkout" class="btn" style="background-color: lightblue;">
+      </form>
+    </div>
+  </div>
+  <div class="col-25">
+    <div class="container1">
+      <h4>Cart <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i> <b>Quantity</b></span></h4>
+      <p><a href="#">Product</a> <span class="price">$</span></p>
+      
+      <hr>
+      <p>Total <span class="price" style="color:black"><b>$</b></span></p>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
